@@ -8,13 +8,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-
-
-const navbar = () => {
-    return (
-        <div className="navbar-one">
-            <>
-            <Navbar expand="lg" className="bg-body-tertiary">
+const Navigation = () => {
+  return (
+    <Navbar expand="lg" className="bg-body-tertiary navbar-fix-top">
       <Container fluid>
         <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -52,10 +48,6 @@ const navbar = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-
-            </>
-        </div>
-    );
+  );
 }
-export default navbar; 
-
+export default Navigation;

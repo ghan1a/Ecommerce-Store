@@ -2,8 +2,8 @@ import './App.css';
 import { useState } from 'react';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import FirstNavbar from './components/FirstNavbar';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Navigation from './components/FirstNavbar';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
@@ -16,9 +16,11 @@ function App() {
 
   return (
     <div className="App">
-      <FirstNavbar />
+      <Navigation />
       <Router>
-        <Route path='/login' element={<Login />} />
+        <Routes>
+          <Route path='/login' element={<Login />} />
+        </Routes>
         {/* <Login> {
           currForm === "Login" ? <Login onFormSwitch={toggleForm} /> : <Signup onFormSwitch={toggleForm} />}
         </Login> */}
