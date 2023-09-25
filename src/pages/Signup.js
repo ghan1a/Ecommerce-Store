@@ -8,7 +8,7 @@ const SignUp = (props) => {
         console.log(email);
     }
     return (
-        <div className="signup">
+        <div className="signup mt-5 p-5">
             <h1>Sign Up!</h1>
             <div className="auth-form-container">
                 <form className="signup-form" onSubmit={handleSubmit}>
@@ -20,7 +20,7 @@ const SignUp = (props) => {
 
                     <label htmlForm="password">Password</label>
                     <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="enter your password" />
-                    <button type="submit">Sign up!</button>
+                    <button className="mt-3" type="submit">Sign up!</button>
                 </form>
             </div>
             <button className="link-btn" onClick={() => props.onFormSwitch("Login")}>Already have an account? Login!</button>

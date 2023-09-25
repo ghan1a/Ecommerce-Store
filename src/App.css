@@ -14,7 +14,6 @@
 .auth-form-container, .login-form, .signup-form {
   display: flex;
   flex-direction: column;
-
 }
 
 .auth-form-container {
@@ -44,8 +43,8 @@ button {
   border: none;
   background-color: rgb(209, 199, 199);
   color: rgb(88, 81, 81);
-  padding: 15px;
-  border-radius: 10px;
+  padding: 15px !important;
+  border-radius: 10px !important;
 }
 
 .link-btn {
@@ -59,4 +58,85 @@ button {
   position: fixed !important;
   top: 0 !important;
   width: 100% !important;
+  z-index: 1;
+}
+
+.Navbar {
+  background-color: transparent !important;
+  color: white;
+}
+
+.location {
+  width: 300px;
+}
+
+.search {
+  width: 1000px;
+}
+
+.nav-bg-dark {
+  background-color: rgb(34, 32, 32);
+  align-items: center;
+}
+
+#navbarScrollingDropdown {
+  color: white;
+}
+
+.login, .cart {
+  cursor: pointer;
+}
+
+#basic-navbar-nav {
+  color: white;
+}
+
+.navbar-expand-lg {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.navbar-nav2 {
+  background-color: rgb(49, 47, 47);
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.color-white {
+  color: white !important;
+}
+
+.main-footer {
+  color: white;
+  background-color: rgb(34, 32, 32);
+  position: relative;
+  padding: 3em;
+  width: 100% !important;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.copyright {
+  text-align: center;
+}
+
+.Navbar.Brand {
+  color: white !important;
+}
+
+.submit-btn {
+  background-color: rgb(209, 199, 199);
+  color: rgb(88, 81, 81);
+  width: 300px;
+}
+
+.cart Button {
+  background-color: rgb(34, 32, 32) !important;
+  border: none;
 }
