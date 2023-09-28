@@ -3,71 +3,81 @@ import { productsArray, getProductData } from "../productStore";
 
 export const CartContext = createContext({
     items: [],
-    getProductQuantity: () => { },
+    getProductQuantity: (id) => { },
     addOneToCart: () => { },
     removeOneFromCart: () => { },
     deleteFromCart: () => { },
     getTotalCost: () => { }
 });
+
 export function CartProvider({ children }) {
     const [cartProducts, setCartProducts] = useState([]);
 
     function getProductQuantity(id) {
-        const quantity = cartProducts.find(product => product.id === id)?.quantity
-
+        const quantity = cartProducts.filter(product => product.id === id)?.length
         if (quantity === undefined) {
             return 0;
         }
-        return quantity;
+        else {
+            return quantity;
+        }
     }
 
     function addOneToCart(id) {
-        const quantity = getProductQuantity(id);
-        if (quantity === 0) {
+        const productToAdd = productsArray.find(product => product.id === id);
+        if (productToAdd) {
             setCartProducts([
                 ...cartProducts,
-                {
-                    id: id,
-                    quantity: 1
-                }
+                productToAdd
             ])
         }
-        else {
-            setCartProducts(
-                cartProducts.map(
-                    product =>
-                        product.id === id
-                            ? { ...product, quantity: product.quantity + 1 }
-                            : product
-                )
-            )
-        }
+
+        // else {
+        //     setCartProducts(
+        //         productsArray.map(
+        //             product =>
+        //                 product.id === id
+        //                     ? { ...product, quantity: product.quantity + 1 }
+        //                     : product
+        //         )
+        //     )
+        // }
+
     }
 
-    function removeOneFromCart(id) {
-        const quantity = getProductQuantity(id);
-
-        if (quantity === 1) {
-            deleteFromCart(id);
+    function removeOneFromCart(productId) {
+        const indexToRemove = cartProducts.findIndex((product) => product.id === productId);
+        if (indexToRemove !== -1) {
+            const updatedCart = [...cartProducts];
+            updatedCart.splice(indexToRemove, 1);
+            setCartProducts(updatedCart);
         }
+    };
 
-        else {
-            setCartProducts(
-                cartProducts.map(
-                    product =>
-                        product.id === id
-                            ? { ...product, quantity: product.quantity - 1 }
-                            : product
-                )
-            )
-        }
-    }
+    // function removeOneFromCart(id) {
+    //     const quantity = getProductQuantity(id);
+
+    //     if (quantity === 1) {
+    //         deleteFromCart(id);
+    //     }
+
+    //     else {
+    //         setCartProducts(
+    //             cartProducts.map(
+    //                 product =>
+    //                     product.id === id
+    //                         ? { ...product, quantity: product.quantity - 1 }
+    //                         : product
+    //             )
+    //         )
+    //     }
+    // }
 
     function deleteFromCart(id) {
         setCartProducts(
             cartProducts =>
                 cartProducts.filter(currentProduct => {
-                    return currentProduct.id != id;
+                    return currentProduct.id !== id;
                 })
         )
     }
@@ -89,12 +99,10 @@ export function CartProvider({ children }) {
         deleteFromCart,
         getTotalCost
     }
-
     return (
         <CartContext.Provider value={contextValue}>
             {children}
         </CartContext.Provider>
     )
 }
-
 export default CartProvider;

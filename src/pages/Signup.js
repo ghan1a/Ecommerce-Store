@@ -5,10 +5,10 @@ const SignUp = (props) => {
     const [name, setName] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+        // console.log(email);
     }
     return (
-        <div className="signup mt-5 p-5">
+        <div className="signup mt-5">
             <h1>Sign Up!</h1>
             <div className="auth-form-container">
                 <form className="signup-form" onSubmit={handleSubmit}>

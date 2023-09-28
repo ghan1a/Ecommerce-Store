@@ -14,6 +14,10 @@ import SignUp from '../pages/Signup';
 import NavbarTwo from './ScndNavbar';
 import { Modal } from 'react-bootstrap';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRightToBracket } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 const Navigation = () => {
 
@@ -27,7 +31,7 @@ const Navigation = () => {
         <Container>
           <Navbar.Brand >
             <div className=" ms-4 mt-1">
-              <Link className='color-white' to="/Home">LOGO</Link>
+              <Link className='color-white' to="/Home" title="Home">LOGO</Link>
             </div>
 
           </Navbar.Brand>
@@ -49,17 +53,23 @@ const Navigation = () => {
               </Form>
 
               <div className="ms-4 mt-3">
-                <Link className='color-white' to="/Login">login</Link>
+                <Link className='color-white' to="/Login" title="Login/ Signup">
+                  <FontAwesomeIcon icon={faRightToBracket} style={{ color: "#ffffff", }} />
+                </Link>
               </div>
 
               <div className="cart ms-4 mt-1">
-                <Button variant="dark" onClick={handleShow}>Cart</Button>
+
+                <Button onClick={handleShow} title="Cart">
+                  <FontAwesomeIcon icon={faCartShopping} />
+                </Button>
               </div>
 
-              <NavDropdown className="profile ms-3 mt-2" title="Profile" id="navbarScrollingDropdown">
+              <NavDropdown className="profile ms-3 mt-2" title={<FontAwesomeIcon icon={faUser} style={{ color: "#ffffff", }} />} id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action1">view profile</NavDropdown.Item>
                 <NavDropdown.Item href="#action2">logout</NavDropdown.Item>
               </NavDropdown>
+
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -70,9 +80,9 @@ const Navigation = () => {
           <Modal.Title>Shopping cart</Modal.Title>
         </Modal.Header>
         <Modal.Body><h5>this is your shoping cart</h5></Modal.Body>
-
       </Modal>
     </>
   );
+
 }
 export default Navigation;

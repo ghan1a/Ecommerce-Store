@@ -8,6 +8,8 @@ import Home from './components/Home';
 import MainLayout from './layout/MainLayout';
 import Navigation from './components/FirstNavbar';
 import CartProvider from './components/CardContext';
+import Help from './components/Help';
+import Deals from './components/Deals';
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
               <Routes>
                 <Route path='/login' element={currForm === "Login" ? <Login onFormSwitch={toggleForm} /> : <Signup onFormSwitch={toggleForm} />} />
                 <Route exact path='/home' element={<Home />} />
+                <Route exact path='/help' element={<Help />} />
+                <Route exact path='/deals' element={<Deals />} />
               </Routes>
             </MainLayout>
           </Router>

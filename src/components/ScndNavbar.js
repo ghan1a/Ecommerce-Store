@@ -2,6 +2,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
+
+
 
 const NavbarTwo = () => {
     return (
@@ -22,10 +27,11 @@ const NavbarTwo = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link className='color-white ms-3'>Deals</Nav.Link>
-                        <Nav.Link className='color-white ms-3'>Help</Nav.Link>
+                        <Link className='color-white ms-4 mt-2' to="/Deals">Deals</Link>
                         <Nav.Link className='color-white ms-3'>Sell</Nav.Link>
-
+                        <Link className='color-white ms-4 mt-2' to="/Help">
+                            <FontAwesomeIcon icon={faCircleInfo} style={{ color: "#ffffff", }} title="Help" />
+                        </Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

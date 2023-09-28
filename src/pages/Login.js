@@ -5,11 +5,11 @@ const Login = (props) => {
     const [password, setPassword] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+        // console.log(email);
     }
 
     return (
-        <div className="login">
+        <div className="login mt-5">
             <h1>Login!</h1>
             <div className="auth-form-container">
                 <form className="login-form" onSubmit={handleSubmit}>

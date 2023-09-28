@@ -139,4 +139,18 @@ a {
 .cart Button {
   background-color: rgb(34, 32, 32) !important;
   border: none;
+  color: white !important;
+}
+
+.Help {
+  width: 100%;
+  top: 0;
+  position: relative;
+}
+
+.helpBody {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
 }
